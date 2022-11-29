@@ -1,0 +1,7 @@
+{
+  "name": "sideMenu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

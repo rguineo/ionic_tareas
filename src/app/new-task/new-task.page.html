@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h1>{{ title }}</h1>
+  <hr>
+
+  <form>
+    <ion-item>
+      <ion-input placeholder="Ingrese Nombre Tarea"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-select interface="popover" placeholder="Selecione Categoria" >
+        <ion-select-option value="job">Trabajo</ion-select-option>
+        <ion-select-option value="personal">Personal</ion-select-option>
+        <ion-select-option value="hobby">Hobby</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <p>Fecha: </p>
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetime" [firstDayOfWeek]="1"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+  </form>
+  <ion-button expand="block">Guardar Tarea</ion-button>
+</ion-content>
