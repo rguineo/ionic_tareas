@@ -14,6 +14,10 @@ const routes: Routes = [
   {
     path: 'new-task/:id',
     loadChildren: () => import('./new-task/new-task.module').then( m => m.NewTaskPageModule)
+  },
+  {
+    path: 'categories',
+    loadChildren: () => import('./categories/categories.module').then( m => m.CategoriesPageModule)
   }
 ];
 
