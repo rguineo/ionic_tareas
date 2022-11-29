@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from '../services/database.service';
 
 @Component({
   selector: 'app-categories',
@@ -6,10 +7,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./categories.page.scss'],
 })
 export class CategoriesPage implements OnInit {
+  categoryName: string = "";
+  categories: any = [];
 
-  constructor() { }
+  constructor(private database: DatabaseService) { }
 
   ngOnInit() {
   }
 
+  addCategory(){
+    this.database.addCategory(this.categoryName).then((data) => {
+      this.categoryName='';
+      alert(data);
+      this.getCategory();
+    });
+  }
+
+  getCategory(){
+    this.database.getCategories().then((data) => {
+      this.categories = [];
+      if(data.rows.lenght > 0){
+        for(var i=0; i < data.rows.lenght; i++){
+          this.categories.push(data.rows.item(i));
+        }
+      }
+    });
+    
+  }
 }
