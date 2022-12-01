@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/inbox"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,24 +15,48 @@
       <ion-input placeholder="Ingrese Nombre Tarea"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <ion-item >
       <ion-select interface="popover" placeholder="Selecione Categoria" >
-        <ion-select-option value="job">Trabajo</ion-select-option>
-        <ion-select-option value="personal">Personal</ion-select-option>
-        <ion-select-option value="hobby">Hobby</ion-select-option>
+        <ion-select-option *ngFor="let category of categories" value="{{ category.id }}"> {{ category.name }} </ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
-      <p>Fecha: </p>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      <p>Inicio: </p>
+      <ion-datetime-button datetime="datetimeStart"></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
         <ng-template>
-          <ion-datetime id="datetime" [firstDayOfWeek]="1"></ion-datetime>
+          <ion-datetime id="datetimeStart" [firstDayOfWeek]="1" 
+          [showDefaultButtons]="true"
+          doneText="OK"
+          cancelText="Cancelar"></ion-datetime>
         </ng-template>
       </ion-modal>
     </ion-item>
+
+    <ion-item>
+      <p>Fin: </p>
+      <ion-datetime-button datetime="datetimeEnd"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime id="datetimeEnd" [firstDayOfWeek]="1"
+          [showDefaultButtons]="true"
+          doneText="OK"
+          cancelText="Cancelar"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-item >
+      <ion-select interface="popover" placeholder="Selecione Estado" >
+        <ion-select-option value="pendiente"> Pendiente </ion-select-option>
+        <ion-select-option value="hecho"> Hecho </ion-select-option>
+      </ion-select>
+    </ion-item>
+
   </form>
-  <ion-button expand="block">Guardar Tarea</ion-button>
+
+  <ion-button expand="block" class="btn-guardar">Guardar Tarea</ion-button>
 </ion-content>

@@ -60,7 +60,7 @@ export class DatabaseService {
   }
 
   async updateCategory(name: string, id: number){
-    return this.databaseObj.executeSql(`UPDATE ${this.tables.categories} SET name = ${name} WHERE id = ${id}`).then(() => {
+    return this.databaseObj.executeSql(`UPDATE ${this.tables.categories} SET name = '${name}' WHERE id = ${id}`, []).then(() => {
       return "Categoria Actualizada";
     }).catch((e) => {
       if(e.code === 6){
