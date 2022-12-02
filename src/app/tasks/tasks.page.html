@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="folder/inbox"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let task of tasks" color="tertiary">
+    <ion-card-header>
+      <ion-card-title>{{ task.task_name }}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <p>Inicio: {{ task.date_start }}</p>
+      <p>Fin: {{ task.date_end }} </p> 
+      <p>Estado: {{ task.status }} </p> 
+    </ion-card-content>
+
+    <ion-button fill="clear" style="color: white" (click)="delTask(task.id)">Eliminar</ion-button>
+    <ion-button fill="clear" style="color: white">Editar</ion-button>
+  </ion-card>  
+</ion-content>

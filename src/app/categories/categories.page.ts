@@ -15,6 +15,7 @@ export class CategoriesPage implements OnInit {
   constructor(private database: DatabaseService) { }
 
   ngOnInit() {
+    this.getCategory();
   }
 
   addCategory(){
@@ -58,7 +59,7 @@ export class CategoriesPage implements OnInit {
     this.database.deleteCategory(id).then((data) => {
       alert("Categoria Eliminada");
       this.getCategory();
-    })
+    });
   }
 
   editCategory(category: any){
