@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
   },
   {
-    path: 'new-task/:id',
+    path: 'new-task',
     loadChildren: () => import('./new-task/new-task.module').then( m => m.NewTaskPageModule)
   },
   {

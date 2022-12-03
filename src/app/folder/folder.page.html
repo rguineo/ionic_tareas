@@ -10,14 +10,25 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
+      <ion-title size="large">Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
 
-    <h1>  </h1>
+    <ion-card *ngFor="let task of tasks" color="tertiary">
+      <ion-card-header>
+        <ion-card-title>{{ task.task_name }}</ion-card-title>
+      </ion-card-header>
+    
+      <ion-card-content>
+        <p>Inicio: {{ task.date_start }}</p>
+        <p>Fin: {{ task.date_end }} </p> 
+        <p>Estado: {{ task.status }} </p> 
+      </ion-card-content>
+    </ion-card>  
+
+
 
   </div>
 </ion-content>
