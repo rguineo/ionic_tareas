@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>Tareas</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,12 +16,12 @@
 
   <div id="container">
 
-    <ion-card *ngFor="let task of tasks" color="tertiary">
+    <ion-card *ngFor="let task of tasks" color="success" >
       <ion-card-header>
         <ion-card-title>{{ task.task_name }}</ion-card-title>
       </ion-card-header>
     
-      <ion-card-content>
+      <ion-card-content class="card-task">
         <p>Inicio: {{ task.date_start }}</p>
         <p>Fin: {{ task.date_end }} </p> 
         <p>Estado: {{ task.status }} </p> 
