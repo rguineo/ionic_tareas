@@ -20,6 +20,6 @@
     </ion-card-content>
 
     <ion-button fill="clear" style="color: white" (click)="delTask(task.id)">Eliminar</ion-button>
-    <ion-button fill="clear" style="color: white">Editar</ion-button>
+    <ion-button fill="clear" style="color: white" [routerLink]="['/edit-task', task.id]">Editar</ion-button>
   </ion-card>  
 </ion-content>
